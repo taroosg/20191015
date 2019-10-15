@@ -22,6 +22,7 @@
   <button value="2">パー</button>
   <ul></ul>
   <script>
+    // じゃんけん
     [...document.getElementsByTagName('button')].forEach(x =>
       x.addEventListener('click', function () {
         [...document.getElementsByTagName('ul')][0].innerHTML = [[['グー', 'グー', 'あいこ'], ['グー', 'チョキ', '勝ち'], ['グー', 'パー', '負け']], [['チョキ', 'グー', '負け'], ['チョキ', 'チョキ', 'あいこ'], ['チョキ', 'パー', '勝ち']], [['パー', 'グー', '勝ち'], ['パー', 'チョキ', '負け'], ['パー', 'パー', 'あいこ']]][this.value][~~(Math.random() * 3)].map((x, index) => { return index === 0 ? `<li>自分の手：${x}</li>` : index === 1 ? `<li>相手の手：${x}</li>` : `<li>結果：${x}</li>` }).join('')
