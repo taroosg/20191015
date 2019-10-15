@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>janken</title>
+  <style>
+    * {
+      background: #2f2f2f;
+      color: #f2f2f2;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>janken</h1>
+  <p>各ボタンをクリックすると「自分の手」「相手の手」「勝敗」を表示！</p>
+  <button value="0">グー</button>
+  <button value="1">チョキ</button>
+  <button value="2">パー</button>
+  <ul></ul>
+  <script>
+    [...document.getElementsByTagName('button')].forEach(x =>
+      x.addEventListener('click', function () {
+        [...document.getElementsByTagName('ul')][0].innerHTML = [[['グー', 'グー', 'あいこ'], ['グー', 'チョキ', '勝ち'], ['グー', 'パー', '負け']], [['チョキ', 'グー', '負け'], ['チョキ', 'チョキ', 'あいこ'], ['チョキ', 'パー', '勝ち']], [['パー', 'グー', '勝ち'], ['パー', 'チョキ', '負け'], ['パー', 'パー', 'あいこ']]][this.value][~~(Math.random() * 3)].map((x, index) => { return index === 0 ? `<li>自分の手：${x}</li>` : index === 1 ? `<li>相手の手：${x}</li>` : `<li>結果：${x}</li>` }).join('')
+      }));
+  </script>
+</body>
+
+</html>
